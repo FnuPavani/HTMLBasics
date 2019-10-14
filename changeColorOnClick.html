@@ -1,0 +1,84 @@
+// Toggle the color of the div on clicking the link
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    div{
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+    }
+    
+  </style>
+</head>
+<body>
+  <script>
+    var count=0;
+    function handleClick(){
+      count++;
+      var color = ["red", "green"]
+      if(count%2 == 0){
+        $("#myDiv").attr('style', 'background-color:red');
+      } else {
+        $("#myDiv").attr('style', 'background-color:green')
+      }
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <a href="void()" onclick="handleClick()">click here</a>
+  <div id="myDiv">
+    some content
+  </div>
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------------------
+// Toggle the color of the div on clicking the link on even times. The color should remain same on clicking odd times
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    div{
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+    }
+    
+  </style>
+</head>
+<body>
+  <script>
+    var count=0;
+    var colorToggle=false;
+    function handleClick(){
+      count++;
+      if(count == 1){
+        $("#myDiv").attr('style', 'background-color:green');
+        colorToggle = true;
+      } else {
+        if(count%2 == 0 && colorToggle ){
+          $("#myDiv").attr('style', 'background-color:red');
+          colorToggle = false;
+        } else if(count%2 == 0 && !colorToggle ){
+          $("#myDiv").attr('style', 'background-color:green');
+          colorToggle = true;
+        }
+      }
+      
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <a href="void()" onclick="handleClick()">click here</a>
+  <div id="myDiv">
+    some content
+  </div>
+</body>
+</html>
