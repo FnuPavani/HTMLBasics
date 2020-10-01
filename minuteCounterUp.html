@@ -1,0 +1,57 @@
+// Build a counter that counts a minute (0-59) iteratively.
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flip Counter</title>
+    <style>
+      .up{
+        display: inline-block;
+        width:75px;
+        height:100px;
+        font-size: 100px;
+        background-color: black;
+        color:#B3B3B3;
+        text-align:center;
+        box-sizing:border-box;
+      }
+      .down{
+        display: inline-block;
+        width:75px;
+        height:100px;
+        font-size:100px;
+        background-color: black;
+        color:#B3B3B3;
+        text-align:center;
+        box-sizing:border-box;
+      }
+    </style>
+</head>
+<body>
+<div class="container">
+  <span class="up" id="up"></span>
+  <span class="down" id="down"></span>
+</div>
+<script>
+    var sec = 0;
+    var minute = 0;
+    var count = function(val,upperLimit){
+      return val <upperLimit ? val : 0;
+    }
+    setInterval(function(){
+      var minutes = document.getElementById("up");
+      var seconds = document.getElementById("down");
+      seconds.innerHTML = count(++sec,10);
+      if(minute === 0)
+        minutes.innerHTML = minute;
+      if(sec === 10){
+        sec = 0;
+        minutes.innerHTML = count(++minute,6);
+      }
+        
+    }, 1000);
+</script>
+</body>
+</html>
