@@ -1,0 +1,70 @@
+// Create a page layout with left side nav bar, header, content and footer with the help of css
+
+<html>
+  <head>
+		<style>
+          * {
+            box-sizing: border-box;
+          }
+          header{
+            background-color: lightblue;
+            text-align: center;
+            width:100%; 
+            padding: 20px;
+          }
+          footer{
+            clear: both;
+            background-color: lightblue;
+            text-align: center;
+            width:100%; 
+            padding: 20px;
+          }
+          nav{
+            background-color: lightyellow;
+            float: left;
+            height: 300px;
+            width:20%;
+          }
+          nav ul{
+            list-style-type: none;
+          }
+          article{
+            background-color: #ffda;
+            padding: 20px;
+            text-align: center;
+            width:80%;
+            float: left;
+            height: 300px;
+          }
+          @media screen and (max-width:600px){
+            nav, article{
+              width:100%;
+              height: auto;
+            }
+          }
+		</style>
+	</head>
+	<body>
+      <div class="wrapper">
+        <header>Header</header>
+        <section>
+          <aside>
+            <nav>
+              <ul>
+                <li><a href="#">Item-1</a></li>
+                 <li><a href="#">Item-2</a></li>
+                 <li><a href="#">Item-3</a></li>
+                 <li><a href="#">Item-4</a></li>
+              </ul>
+            </nav>
+          </aside>
+          <article>
+              Content here
+          </article>
+        </section>
+        <footer>Footer</footer>
+      </div>
+	</body>
+</html>
+
+
