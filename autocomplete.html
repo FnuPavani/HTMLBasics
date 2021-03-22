@@ -1,0 +1,37 @@
+// Walmart interview question
+// Autocomplete
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <div>
+    <input type="text" id="states" />
+  </div>
+  <div id="listStates">
+  </div>
+  <script>
+    let state = ["Alabama","Arizona","Arkansas","California","Colorado"];
+    function getStateList(){
+      let input = document.getElementById('states').value;
+      let suggestion = [];
+      if(input){
+        let regex = new RegExp('^'+input,'i');
+        suggestion = state.filter(data => regex.test(data));
+        let output = "<ul>";
+        suggestion.map((data,index)=>{
+          output += "<li key="+index+">"+data+"</li>";
+        })
+        document.getElementById('listStates').innerHTML = output;
+      }
+    }
+    let input = document.getElementById('states');
+    input.addEventListener('keyup', getStateList);
+  </script>
+  
+</body>
+</html>
